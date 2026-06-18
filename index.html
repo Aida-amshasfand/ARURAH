@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AURURAH</title>
+
+    <!-- Gloock -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ======================================================
+         DISCLAIMER / CLOSED GATES
+         ====================================================== -->
+
+    <div id="disclaimer" class="disclaimer-overlay">
+
+        <div class="disclaimer-content">
+
+            <h1 class="disclaimer-title">
+                CLOSED GATES
+            </h1>
+
+            <p class="disclaimer-text">
+                This site is not for everyone.
+                <br>
+                Enter only if you are prepared to feel something different.
+            </p>
+
+            <button id="enterBtn" class="enter-button">
+                ENTER
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ======================================================
+         MENU TOGGLE
+         ====================================================== -->
+
+    <button
+        id="menuToggle"
+        class="menu-toggle"
+        aria-label="Open Menu"
+    >
+
+        <span class="spiral">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+
+    </button>
+
+    <!-- ======================================================
+         FULLSCREEN MENU
+         ====================================================== -->
+
+    <aside
+        id="menuOverlay"
+        class="menu-overlay"
+        aria-hidden="true"
+    >
+
+        <button
+            id="menuClose"
+            class="menu-close"
+            aria-label="Close Menu"
+        >
+            ✕
+        </button>
+
+        <div class="menu-inner">
+
+            <nav class="menu-nav">
+
+                <a href="#" class="menu-link">
+                    About
+                </a>
+
+                <a href="#" class="menu-link">
+                    Offerings
+                </a>
+
+                <a href="#" class="menu-link">
+                    Login
+                </a>
+
+                <a href="#" class="menu-link">
+                    Contact
+                </a>
+
+            </nav>
+
+        </div>
+
+    </aside>
+
+    <!-- ======================================================
+         HERO
+         ====================================================== -->
+
+    <main class="hero">
+
+        <!-- VIDEO -->
+
+        <video
+            class="hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+        >
+            <source
+                src="media/hero-video.mp4"
+                type="video/mp4"
+            >
+        </video>
+
+        <!-- OVERLAY -->
+
+        <div class="hero-overlay"></div>
+
+        <!-- CONTENT -->
+
+        <section class="hero-content">
+
+            <div class="logo-wrapper">
+
+<h1 class="logo">
+    AURURAH
+</h1>
+
+                <p class="hero-subtitle">
+                    Archive of the unseen
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

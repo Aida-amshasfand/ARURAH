@@ -1,0 +1,622 @@
+/* ==========================================================
+   AURURAH
+   STYLE.CSS
+   ========================================================== */
+
+/* =========================
+   GOOGLE FONT FALLBACKS
+   ========================= */
+
+:root {
+
+    /* Colors */
+
+    --bg: #231919;
+    --deep-red: #53131E;
+    --red: #770523;
+    --gold: #EDC483;
+    --ivory: #F4D9B5;
+
+    /* Layout */
+
+    --header-height: 80px;
+
+    /* Animation */
+
+    --cinematic:
+        cubic-bezier(0.22, 1, 0.36, 1);
+
+    --menu-speed: 900ms;
+    --gate-speed: 1400ms;
+
+    /* Z-Index */
+
+    --z-video: 1;
+    --z-content: 5;
+    --z-hamburger: 250;
+    --z-menu: 300;
+    --z-menu-close: 301;
+    --z-disclaimer: 1000;
+}
+
+/* ==========================================================
+   RESET
+   ========================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: var(--bg);
+    color: var(--ivory);
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+
+.hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ==========================================================
+   VIDEO
+   ========================================================== */
+
+.hero-video {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center center;
+
+    filter:
+        blur(4px)
+        brightness(0.75)
+        saturate(0.9);
+
+    transform: scale(1.05);
+
+    z-index: 1;
+}
+/* ==========================================================
+   CINEMATIC OVERLAY
+   ========================================================== */
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(35, 25, 25, 0.35),
+            rgba(35, 25, 25, 0.72)
+        );
+
+    z-index: 2;
+}
+
+/* ==========================================================
+   HERO CONTENT
+   ========================================================== */
+
+.hero-content {
+    position: relative;
+    z-index: var(--z-content);
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 2rem;
+}
+
+.logo-wrapper {
+    max-width: 1200px;
+}
+
+/* ==========================================================
+   LOGO
+   ========================================================== */
+
+.logo {
+    font-family: "Gloock", serif;
+
+    font-size: clamp(7rem, 14vw, 16rem);
+
+    line-height: 0.9;
+
+    letter-spacing: 0.12em;
+
+    font-weight: 400;
+
+    color: var(--gold);
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 0 10px rgba(237, 196, 131, 0.15),
+        0 0 30px rgba(237, 196, 131, 0.08);
+
+    -webkit-text-stroke:
+        1px rgba(244, 217, 181, 0.08);
+}
+.logo-gold {
+    color: var(--gold);
+
+    text-shadow:
+        0 0 12px rgba(237, 196, 131, 0.18),
+        0 0 28px rgba(237, 196, 131, 0.12);
+
+    -webkit-text-stroke:
+        1px rgba(244, 217, 181, 0.08);
+}
+
+.logo-ivory {
+    color: var(--ivory);
+
+    text-shadow:
+        0 0 12px rgba(244, 217, 181, 0.12);
+}
+
+.hero-subtitle {
+    margin-top: 2rem;
+
+    color: rgba(244, 217, 181, 0.75);
+
+    font-size: 0.9rem;
+
+    letter-spacing: 0.45em;
+
+    text-transform: uppercase;
+
+    font-weight: 400;
+}
+
+/* ==========================================================
+   MENU TOGGLE
+   ========================================================== */
+
+.menu-toggle {
+    position: fixed;
+
+    top: 2rem;
+    right: 2rem;
+
+    width: 64px;
+    height: 64px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    z-index: var(--z-hamburger);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        transform 0.4s ease;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.08);
+}
+
+/* ==========================================================
+   SPIRAL ICON
+   ========================================================== */
+
+.spiral {
+    position: relative;
+
+    width: 42px;
+    height: 42px;
+}
+
+.spiral span {
+    position: absolute;
+
+    border: 1.5px solid var(--gold);
+    border-radius: 50%;
+}
+
+.spiral span:nth-child(1) {
+    width: 42px;
+    height: 42px;
+    opacity: 1;
+}
+
+.spiral span:nth-child(2) {
+    width: 28px;
+    height: 28px;
+
+    top: 7px;
+    left: 7px;
+
+    opacity: 0.7;
+}
+
+.spiral span:nth-child(3) {
+    width: 14px;
+    height: 14px;
+
+    top: 14px;
+    left: 14px;
+
+    opacity: 0.5;
+}
+
+/* ==========================================================
+   MENU OVERLAY
+   ========================================================== */
+
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+
+    background:
+        rgba(35, 25, 25, 0.95);
+
+    backdrop-filter: blur(12px);
+
+    z-index: var(--z-menu);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform:
+        translateY(100%);
+
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        transform var(--menu-speed) var(--cinematic),
+        visibility 0s linear var(--menu-speed);
+}
+
+/* OPEN */
+
+.menu-overlay.active {
+    transform:
+        translateY(0);
+
+    visibility: visible;
+    pointer-events: auto;
+
+    transition:
+        transform var(--menu-speed) var(--cinematic);
+}
+
+/* ==========================================================
+   CLOSE BUTTON
+   ========================================================== */
+
+.menu-close {
+    position: absolute;
+
+    top: 2rem;
+    right: 2rem;
+
+    border: none;
+    background: transparent;
+
+    color: var(--ivory);
+
+    font-size: 2rem;
+
+    cursor: pointer;
+
+    z-index: var(--z-menu-close);
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.menu-close:hover {
+    color: var(--gold);
+    transform: scale(1.12);
+}
+
+/* ==========================================================
+   MENU CONTENT
+   ========================================================== */
+
+.menu-inner {
+    width: 100%;
+    max-width: 1100px;
+    padding: 3rem;
+}
+
+.menu-nav {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(250px, 1fr)
+        );
+
+    gap: 3rem;
+}
+
+/* ==========================================================
+   MENU LINKS
+   ========================================================== */
+
+.menu-link {
+    position: relative;
+
+    text-decoration: none;
+
+    color: var(--ivory);
+
+    font-size:
+        clamp(
+            2rem,
+            4vw,
+            4.2rem
+        );
+
+    font-weight: 300;
+
+    letter-spacing: 0.04em;
+
+    padding-bottom: 0.5rem;
+
+    transition:
+        color 0.35s ease;
+}
+
+.menu-link:hover {
+    color: var(--gold);
+}
+
+.menu-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background: var(--gold);
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition:
+        transform 0.45s ease;
+}
+
+.menu-link:hover::after {
+    transform: scaleX(1);
+}
+
+/* ==========================================================
+   DISCLAIMER
+   ========================================================== */
+
+.disclaimer-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: var(--bg);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 2rem;
+
+    z-index: var(--z-disclaimer);
+
+    transform: translateY(0);
+}
+
+.disclaimer-overlay.entered {
+    transform:
+        translateY(-110%);
+
+    transition:
+        transform var(--gate-speed)
+        var(--cinematic);
+}
+
+.disclaimer-content {
+    max-width: 650px;
+}
+
+.disclaimer-title {
+    font-family: "Gloock", serif;
+
+    color: var(--gold);
+
+    font-size:
+        clamp(
+            3rem,
+            7vw,
+            6rem
+        );
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+
+    margin-bottom: 2rem;
+}
+
+.disclaimer-text {
+    color:
+        rgba(
+            244,
+            217,
+            181,
+            0.85
+        );
+
+    font-size:
+        clamp(
+            1rem,
+            1.5vw,
+            1.25rem
+        );
+
+    line-height: 1.9;
+
+    margin-bottom: 3rem;
+}
+
+.enter-button {
+    background: transparent;
+
+    border: 1px solid
+        rgba(
+            237,
+            196,
+            131,
+            0.4
+        );
+
+    color: var(--gold);
+
+    padding:
+        1rem 3rem;
+
+    letter-spacing: 0.3em;
+
+    font-size: 0.85rem;
+
+    cursor: pointer;
+
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        transform 0.35s ease;
+}
+
+.enter-button:hover {
+    background:
+        rgba(
+            237,
+            196,
+            131,
+            0.08
+        );
+
+    transform:
+        translateY(-2px);
+}
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        top: 1.25rem;
+        right: 1.25rem;
+
+        width: 56px;
+        height: 56px;
+    }
+
+    .menu-close {
+        top: 1.5rem;
+        right: 1.5rem;
+    }
+
+    .menu-nav {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .menu-link {
+        font-size:
+            clamp(
+                2rem,
+                9vw,
+                3.5rem
+            );
+    }
+
+    .logo {
+        font-size:
+            clamp(
+                2.5rem,
+                14vw,
+                4rem
+            );
+
+        letter-spacing: 0.1em;
+    }
+
+    .hero-subtitle {
+        font-size: 0.75rem;
+        letter-spacing: 0.28em;
+    }
+
+    .disclaimer-title {
+        font-size:
+            clamp(
+                2.5rem,
+                12vw,
+                4rem
+            );
+    }
+
+    .disclaimer-text {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .enter-button {
+        width: 100%;
+    }
+}
